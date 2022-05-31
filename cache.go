@@ -40,6 +40,7 @@ func (c *Cache) Put(key, value string) {
 }
 
 func (c *Cache) Keys() []string {
+	c.expire()
 	keys := make([]string, 0, len(c.Cached))
 	for key := range c.Cached {
 		keys = append(keys, key)
